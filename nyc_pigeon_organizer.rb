@@ -1,12 +1,18 @@
 def nyc_pigeon_organizer(data)
   new_hash ={}
   data.each do |info, values|
-    values.each do |value, name|
+    values.each do |attribute, name|
       name.each do |pigeon|
-        new_hash[pigeon] || = {}
-        new_hash[pigeon][info] || = []
-        new_hash[pigeon][info] << value.to_s
+        if !new_hash.include?(pigeon)
+          new_hash[pigeon] ={}
       end
+      if info != :color
+        new_hash[pigeon][info] = attribute
+      elsif new_hash[pigeon][info] == nil
+        new_hash[pigeon][info] = [values]
+      else new_hash[pigeon][info] << attribute
+      end
+    end
     end
   end
   new_hash
