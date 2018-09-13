@@ -6,13 +6,12 @@ def nyc_pigeon_organizer(data)
         if !new_hash.include?(pigeon)
           new_hash[pigeon] ={}
       end
-      if info != :color
-        new_hash[name][info] = attribute
-      elsif new_hash[pigeon][info] == nil
-        new_hash[pigeon][info] = [values]
-      else new_hash[pigeon][info] << attribute
+      if !new_hash[pigeon].include?(info)
+        new_hash[pigeon][info] = []
       end
-    end
+      if !new_hash[pigeon][info].include?(attribute)
+        new_hash[pigeon][info] << attribute.to_s
+      end
     end
   end
   new_hash
