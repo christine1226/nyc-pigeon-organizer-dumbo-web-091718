@@ -7,10 +7,10 @@ def nyc_pigeon_organizer(data)
           new_hash[pigeon] ={}
       end
       if info != :color
-        new_hash[pigeon][info] = attribute
-      elsif new_hash[pigeon][info] == nil
-        new_hash[pigeon][info] = [values]
-      else new_hash[pigeon][info] << attribute
+        new_hash[name][info] = attribute
+      elsif new_hash[name][info] == nil
+        new_hash[name][info] = [values]
+      else new_hash[name][info] << attribute
       end
     end
     end
